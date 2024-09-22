@@ -1,0 +1,363 @@
+
+\subsubsection{Read\_Chunk}
+\textbf{Purpose:} Reads a 512 byte chunk of a large file\\
+\textbf{Call address:} \$FEF4\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This reads a 512 byte chunk of memory to \$0800\\
+\textbf{Example:} \\
+\begin{ffcode}
+    JSR $FEF4   ; Call Write_Chunk
+\end{ffcode}
+
+\subsubsection{Write\_Chunk}
+\textbf{Purpose:} Writes a 512 byte chunk of a large file\\
+\textbf{Call address:} \$FEF8\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This writes a 512 byte chunk of memory from \$0800\\
+\textbf{Example:}\\\
+\begin{ffcode}
+    JSR $FEF8   ; Call Write_Chunk
+\end{ffcode}
+\pagebreak
+\subsubsection{InitBlob}
+\textbf{Purpose:} Creates a large file\\
+\textbf{Call address:} \$FEFC\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This creates a file on the SDcard based on the Filename and Filesize set in memory\\
+\textbf{Example:} Creates a example.bin of 1MB\\
+\begin{ffcode}
+    JSR $FEFC   ; Call InitBlob
+\end{ffcode}
+
+\subsubsection{UpdateDisplay}
+\textbf{Purpose:} Updates the Seven Segment Display\\
+\textbf{Call address:} \$FF10\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} 4 bytes\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine takes the three bytes at \$D0, \$D1, \$D2 and displays them on the Seven Segment Display\\
+\textbf{Example:} Update the display to read "010203"\\
+\begin{ffcode}
+    LDA #$01
+    STA $D0
+    LDA #$02
+    STA $D1
+    LDA #$03
+    STA $D2
+    JSR $FF10   ; Call UpdateDisplay
+\end{ffcode}
+
+\pagebreak
+
+\subsubsection{ReadKeypad}
+\textbf{Purpose:} Reads the keypad, with debounce\\
+\textbf{Call address:} \$FF14\\
+\textbf{Communication via:} A Register\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} Returns the keycode of any key pressed. Keycode is returned in  A register. This will hold execution until key is released\\
+\textbf{Example:} Loop until the "5" key is pressed and released\\
+\begin{ffcode}
+Loop:
+    JSR $FF14   ; Call ReadKeypad
+    CMP #$05    ; Compare A with 05
+    BNE Loop    ; Branch if not equal
+\end{ffcode}
+
+
+\subsubsection{ScanKeypad}
+\textbf{Purpose:} Returns current key pressed\\
+\textbf{Call address:} \$FF18\\
+\textbf{Communication via:} A Register\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} Returns the keycode on any key pressed, will return immediately and so can miss a short key press.\\
+\textbf{Example:} Loop until the "5" key is pressed\\
+\begin{ffcode}
+Loop:
+    JSR $FF18   ; Call ScanKeypad
+    CMP #$05    ; Compare A with 05
+    BNE Loop    ; Branch if not equal
+\end{ffcode}
+
+\pagebreak
+
+\subsubsection{GetRandomByte}
+\textbf{Purpose:} Generates a random byte\\
+\textbf{Call address:} \$FF20\\
+\textbf{Communication via:} A Register\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine uses a linear congruential generator system to create a mostly random byte.\\
+\textbf{Example:} Get random byte and display it\\
+\begin{ffcode}
+Loop:
+    JSR $FF20   ; Call GetRandomByte
+    STA $D0     ; Store in display buffer
+    JSR $FF10   ; Call UpdateDisplay
+\end{ffcode}
+
+
+
+
+\subsubsection{Sleep\_Long}
+\textbf{Purpose:} Sleeps for about 0.5 seconds\\
+\textbf{Call address:} \$FF30\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} X, Y\\
+\textbf{Description:} This returns after about 0.5 seconds\\
+
+
+\subsubsection{Sleep\_Short}
+\textbf{Purpose:} Sleeps for about 50 milliseconds\\
+\textbf{Call address:} \$FF34\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} X\\
+\textbf{Description:} This returns after about 50 milliseconds\\
+
+
+\subsubsection{SPI\_Write\_Byte}
+\textbf{Purpose:} Writes one byte to the SPI bus\\
+\textbf{Call address:} \$FF40\\
+\textbf{Communication via:} A Register\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A\\
+\textbf{Description:} This routine writes the byte in the A register to the SPI bus\\
+\textbf{Example:} Send \$FF to the display.\\
+\textbf{Note:} This will light all segments of the left most digit and NOT display \$FF\\
+\begin{ffcode}
+Loop:
+    JSR $FF58   ; Call SPI_Select_7seg
+    LDA #$FF    ; Setup to send $FF
+    JSR $FF40   ; Call SPI_Write_Byte
+    JSR $FF5C   ; Call SPI_Unselect_7seg
+\end{ffcode}
+
+
+\subsubsection{SPI\_Read\_Byte}
+\textbf{Purpose:} Reads one byte from the SPI bus\\
+\textbf{Call address:} \$FF44\\
+\textbf{Communication via:} A Register\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine reads a byte from the SPI bus to the A register. It also writes a null byte to the SPI bus at the same time.\\
+
+\pagebreak
+
+\subsubsection{SPI\_Select\_SDcard}
+\textbf{Purpose:} Selects the SD Card as the active device on the SPI bus\\
+\textbf{Call address:} \$FF50\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A\\
+\textbf{Description:} Sets the Chip Select line low for the SD Card\\
+\textbf{Note:} The Chip Select line is Active low\\ 
+
+
+\subsubsection{SPI\_Unselect\_SDcard}
+\textbf{Purpose:} Unselects the SD Card as the active device on the SPI bus\\
+\textbf{Call address:} \$FF54\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A\\
+\textbf{Description:} Sets the Chip Select line high for the SD Card\\ 
+\textbf{Note:} The Chip Select line is Active low\\ 
+
+
+\subsubsection{SPI\_Select\_7seg}
+\textbf{Purpose:} Selects the Seven Segment Display as the active device on the SPI bus\\
+\textbf{Call address:} \$FF58\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A\\
+\textbf{Description:} Sets the Chip Select line low for the Seven Segment Display\\
+\textbf{Note:} The Chip Select line is Active low\\ 
+
+\pagebreak
+
+\subsubsection{SPI\_Unselect\_7seg}
+\textbf{Purpose:} Unselects the Seven Segment Display as the active device on the SPI bus\\
+\textbf{Call address:} \$FF5C\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} None\\
+\textbf{Registers affected:} A\\
+\textbf{Description:} Sets the Chip Select line high for the Seven Segment Display\\
+\textbf{Note:} The Chip Select line is Active low\\ 
+
+
+\subsubsection{Init\_SD\_card}
+\textbf{Purpose:} Initialises the SD Card for use on SPI bus\\
+\textbf{Call address:} \$FF60\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} Errors returned at "ErrorCode" (\$0206)\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine initialises the SD Card to work in SPI mode\\
+
+
+\subsubsection{SD\_Card\_Mount}
+\textbf{Purpose:} Gathers information about the file system ready for other file operations\\
+\textbf{Call address:} \$FF64\\
+\textbf{Communication via:} None\\
+\textbf{Error return:} Errors returned at "ErrorCode" (\$0206)\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine takes file system information from the SD Card and sets up the card for further file system operations\\
+
+\pagebreak
+\subsubsection{SD\_Card\_Read\_Sector}
+\textbf{Purpose:} Reads a single sector from the SD Card.\\
+\textbf{Call address:} \$FF68\\
+\textbf{Communication via:} Memory addresses.\\
+\textbf{Error return:} Errors returned at "ErrorCode" (\$0206)\\
+\textbf{Stack requirements:} Unknown\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine reads the sector of "CurrentSector" into memory pointed to by "ZP\_SectorBufPTR". "ZP\_SectorReadSize" is the number of bytes to read, 512 bytes is a full sector. \\
+\textbf{Example:} Read sector \$00000042 to location of \$2000.\\
+\begin{ffcode}
+LDA #$00                ; Setup to read sector $00000042
+STA CurrentSector       ; MSB of sector
+STA CurrentSector+1
+STA CurrentSector+2
+LDA #$42 
+STA CurrentSector+3     ; LSB of Sector
+LDA #$00                ; Setup to read sector to $2000
+STA ZP_SectorBufPTR     ; Set buffer start pointer Low byte
+LDA #$20                ; Setup to read sector to $2000
+STA ZP_SectorBufPTR+1   ; Set buffer start pointer High byte
+LDA #$00                ; Setup to read $200 bytes
+STA ZP_SectorReadSize   ; Set buffer end pointer Low byte
+LDA #$02                ; Setup to read $200 bytes
+STA ZP_SectorReadSize+1 ; Set buffer end pointer High byte
+JSR $FF68               ; Read sector
+\end{ffcode}
+
+
+\subsubsection{SD\_Card\_Write\_Sector}
+\textbf{Purpose:} Writes a sector to the SD Card\\
+\textbf{Call address:} \$FF6C\\
+\textbf{Communication via:}\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:}\\
+\textbf{Description:} This routine writes a sector to the SD Card.\\
+\textbf{Example:} TBA\\
+\textbf{Note:} This function has not been written yet.\\
+
+
+\subsubsection{CreateFileName}
+\textbf{Purpose:} Creates a file name from a number\\
+\textbf{Call address:} \$FF70\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine converts a single byte number into a ASCII string file name\\
+\textbf{Example:} Converts \$01 to "01.BIN", filename is stored at \$0251
+\begin{ffcode}
+    LDA #$01    ; Setup for file 01.BIN
+    STA $0250   ; Store 01 at FileNumber
+    JSR $FF70   ; Call CreateFileName
+\end{ffcode}
+
+
+\subsubsection{FindFile}
+\textbf{Purpose:} Finds the first cluster of a file for a file load operation\\
+\textbf{Call address:} \$FF74\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} Errors returned at "ErrorCode" (\$0206)\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine will search the directory of the SD Card for the filename and return the first cluster number of the file. Returns cluster number via 4 bytes at \$021B\\
+
+\pagebreak
+\subsubsection{LoadFile}
+\textbf{Purpose:} Loads a file into memory\\
+\textbf{Call address:} \$FF78\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} Errors returned at "ErrorCode" (\$0206)\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine loads "FileName" into memory pointed to by "LoadAddrPTR"\\
+\textbf{Example:} Loads "01.BIN"
+\begin{ffcode}
+    LDA #$01    ; Setup file number $01
+    STA $0250   ; FileNumber is stored at $0250
+    JSR $FF70   ; Convert FileNumber to FileName 
+    JSR $FF60   ; Init the SD Card to SPI mode.
+    JSR $FF64   ; Mount SD Card to setup file system.
+    LDA #$00    ; Setup Load Address to $1000
+    STA $0260   ; Load address pointer (LSB) is stored at $0260 
+    LDA #$10    ; Setup Load Address to $1000
+    STA $0261   ; Load Address pointer (MSB) is stored at $0261
+    JSR $FF78   ; Call LoadFile
+\end{ffcode}
+
+
+\subsubsection{LBA\_Addr}
+\textbf{Purpose:} Calculates LBA sector from cluster number\\
+\textbf{Call address:} \$FF7C\\
+\textbf{Communication via:} A, X, Y\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:}\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine converts a cluster number to an LBA sector address as part of loading a file.\\
+\textbf{Note:} Not typically used by end user\\
+
+\pagebreak
+\subsubsection{GetNextSector}
+\textbf{Purpose:} Finds the next sector in a file\\
+\textbf{Call address:} \$FF80\\
+\textbf{Communication via:} \\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine finds the next sector in a file and is used as part of loading a file\\
+\textbf{Note:} Not typically used by end user\\
+
+
+\subsubsection{FindNextCluster}
+\textbf{Purpose:} Finds the next cluster in a file\\
+\textbf{Call address:} \$FF84\\
+\textbf{Communication via:}\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:}\\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine finds the next cluster in a file and is used as part of loading a file\\
+\textbf{Note:} Not typically used by end user\\
+
+\subsubsection{BootStrap}
+\textbf{Purpose:} Checks the SD Card for a file and runs it or returns to the monitor ROM\\
+\textbf{Call address:} \$FF90\\
+\textbf{Communication via:} Memory addresses\\
+\textbf{Error return:} None\\
+\textbf{Stack requirements:} \\
+\textbf{Registers affected:} A, X, Y\\
+\textbf{Description:} This routine is used as part of power up, it will check the SD Card for "FileNumber" and if it finds the file it will load it to \$1000 and jump to \$1000.\\
+
+
+
+

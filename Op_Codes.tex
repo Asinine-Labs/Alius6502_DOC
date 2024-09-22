@@ -1,0 +1,1332 @@
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{ADC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Add to Accumulator with Carry}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$69}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$65}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$75}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$6d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$7d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$79}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$72}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$61}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{ADC (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$71}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & \cellcolor{green!25}V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{AND}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{AND with Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$29}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$25}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$35}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$2d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$3d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{AND \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$39}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{AND (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$32}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{AND (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$21}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{AND (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$31}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{ASL}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Arithmetic Shift Left}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{ASL}&\multicolumn{1}{|p{0.1\textwidth}|}{\$0a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{ASL \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$06}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ASL \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$16}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{ASL \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$0e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ASL \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$1e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BBR}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch On Bit Reset}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 0 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR0, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$0f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 1 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR1, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$1f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 2 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR2, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$2f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 3 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR3, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$3f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 4 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR4, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$4f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 5 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR5, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$5f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 6 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR6, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$6f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 7 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBR7, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$7f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BBS}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch On Bit Set}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 0 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS0, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$8f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 1 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS1, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$9f}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 2 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS2, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$af}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 3 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS3, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$bf}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 4 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS4, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$cf}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 5 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS5, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$df}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 6 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS6, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ef}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 7 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BBS7, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ff}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BCC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Carry Clear}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BCC \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$90}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BCS}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Carry Set}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BCS \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BEQ}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Result Zero}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BEQ \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BIT}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Bit Test with Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BIT \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$89}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{BIT \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$24}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{BIT \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$34}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{BIT \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$2c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{BIT \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$3c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & \cellcolor{green!25}V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BMI}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Result Negative}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BMI \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$30}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BNE}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Result Not Zero}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BNE \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BPL}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Result Positive}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BPL \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$10}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BRA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch Always}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BRA \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$80}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BRK}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Break / Interrupt}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{BRK}&\multicolumn{1}{|p{0.1\textwidth}|}{\$00}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{7}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & \cellcolor{green!25}I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BVC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Overflow Clear}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BVC \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$50}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{BVS}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Branch if Overflow Set}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{BVS \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$70}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2 (+1 if branch taken, +2 if to a new page)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CLC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Clear Carry}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{CLC}&\multicolumn{1}{|p{0.1\textwidth}|}{\$18}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CLD}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Clear Decimal Mode}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{CLD}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & \cellcolor{green!25}D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CLI}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Clear Interrupt Disable}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{CLI}&\multicolumn{1}{|p{0.1\textwidth}|}{\$58}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & \cellcolor{green!25}I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CLV}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Clear Overflow}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{CLV}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & \cellcolor{green!25}V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CMP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Compare with Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c9}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$cd}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$dd}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d9}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d2}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{CMP (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CPX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Compare with X}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{CPX \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{CPX \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e4}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{CPX \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ec}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{CPY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Compare with Y}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{CPY \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{CPY \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c4}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{CPY \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$cc}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{DEC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Decrement by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{DEC}&\multicolumn{1}{|p{0.1\textwidth}|}{\$3a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{DEC \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{DEC \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{DEC \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ce}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{DEC \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$de}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{7}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{DEX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Decrement X by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{DEX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ca}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{DEY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Decrement Y by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{DEY}&\multicolumn{1}{|p{0.1\textwidth}|}{\$88}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{EOR}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Exclusive OR with Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$49}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$45}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$55}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$4d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$5d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$59}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$52}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$41}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{EOR (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$51}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{INC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Increment by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{INC}&\multicolumn{1}{|p{0.1\textwidth}|}{\$1a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{INC \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{INC \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{INC \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ee}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{INC \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$fe}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{7}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{INX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Increment X by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{INX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{INY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Increment Y by one}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{INY}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{JMP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Jump}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{JMP \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$4c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{JMP (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$6c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{JMP \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$7c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{JSR}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Jump to Subroutine}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{JSR \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$20}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{LDA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Load Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a9}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ad}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$bd}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b9}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b2}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{LDA (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{LDX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Load X}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{LDX \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a2}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{LDX \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{LDX \$44,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b6}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{LDX \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ae}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{LDX \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$be}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{LDY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Load Y}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{LDY \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a0}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{LDY \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a4}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LDY \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b4}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{LDY \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ac}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LDY \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$bc}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{LSR}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Logical Shift Right}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{LSR}&\multicolumn{1}{|p{0.1\textwidth}|}{\$4a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{LSR \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$46}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LSR \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$56}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{LSR \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$4e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{LSR \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$5e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{NOP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{No Operation}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{NOP}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ea}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{ORA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{OR with Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$09}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$05}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$15}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$0d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$1d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$19}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$12}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$01}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{ORA (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$11}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PHA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Push Accumulator to Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PHA}&\multicolumn{1}{|p{0.1\textwidth}|}{\$48}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PHP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Push Status Register to stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PHP}&\multicolumn{1}{|p{0.1\textwidth}|}{\$08}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PHX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Push X to Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PHX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$da}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PHY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Push Y to Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PHY}&\multicolumn{1}{|p{0.1\textwidth}|}{\$5a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PLA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Pull Accumulator from Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PLA}&\multicolumn{1}{|p{0.1\textwidth}|}{\$68}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PLP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Pull Status Register from stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PLP}&\multicolumn{1}{|p{0.1\textwidth}|}{\$28}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & \cellcolor{green!25}V & - & B & \cellcolor{green!25}D & \cellcolor{green!25}I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PLX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Pull X from Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PLX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$fa}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{PLY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Pull Y from Stack}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{PLY}&\multicolumn{1}{|p{0.1\textwidth}|}{\$7a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{RMB}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Reset Memory Bit}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 0 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB0, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$07}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 1 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB1, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$17}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 2 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB2, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$27}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 3 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB3, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$37}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 4 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB4, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$47}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 5 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB5, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$57}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 6 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB6, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$67}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 7 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{RMB7, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$77}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{ROL}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Rotate Left}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{ROL}&\multicolumn{1}{|p{0.1\textwidth}|}{\$2a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{ROL \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$26}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ROL \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$36}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{ROL \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$2e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ROL \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$3e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{ROR}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Rotate Right}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{ROR}&\multicolumn{1}{|p{0.1\textwidth}|}{\$6a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{ROR \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$66}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ROR \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$76}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{ROR \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$6e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{ROR \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$7e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{RTI}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Return from Interrupt}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{RTI}&\multicolumn{1}{|p{0.1\textwidth}|}{\$40}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{RTS}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Return from Subroutine}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{RTS}&\multicolumn{1}{|p{0.1\textwidth}|}{\$60}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{SBC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Subtract from Accumulator with Borrow}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Immediate}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \#\$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e9}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{3}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f5}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ed}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$fd}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f9}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{4 (+1 if page crossed)}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f2}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{SBC (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f1}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5 (+1 if page crossed)}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & \cellcolor{green!25}V & - & B & D & I & \cellcolor{green!25}Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{SEC}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Set Carry}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{SEC}&\multicolumn{1}{|p{0.1\textwidth}|}{\$38}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & \cellcolor{green!25}C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{SED}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Set Decimal Mode}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{SED}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & \cellcolor{green!25}D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{SEI}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Set Interrupt Disable}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{SEI}&\multicolumn{1}{|p{0.1\textwidth}|}{\$78}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & \cellcolor{green!25}I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{SMB}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Set Memory Bit}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 0 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB0, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$87}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 1 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB1, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$97}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 2 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB2, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 3 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB3, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$b7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 4 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB4, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$c7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 5 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB5, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$d7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 6 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB6, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$e7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Bit 7 - Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{SMB7, \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$f7}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{STA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Store Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{STA \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$85}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{STA \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$95}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{STA \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$8d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{STA \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$9d}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{STA \$4400,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$99}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect)}&\multicolumn{1}{|p{0.2\textwidth}|}{STA (\$4400)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$92}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect, X)}&\multicolumn{1}{|p{0.2\textwidth}|}{STA (\$4400,X)}&\multicolumn{1}{|p{0.1\textwidth}|}{\$81}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{7}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{(Indirect), Y}&\multicolumn{1}{|p{0.2\textwidth}|}{STA (\$4400),Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$91}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{7}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{STP}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Stop}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{STP}&\multicolumn{1}{|p{0.1\textwidth}|}{\$db}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{STX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Store X}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{STX \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$86}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, Y}&\multicolumn{1}{|p{0.2\textwidth}|}{STX \$44,Y}&\multicolumn{1}{|p{0.1\textwidth}|}{\$96}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{STX \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$8e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{STY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Store Y}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{STY \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$84}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{STY \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$94}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{STY \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$8c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{STZ}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Store Zero}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{STZ \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$64}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{4}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page, X}&\multicolumn{1}{|p{0.2\textwidth}|}{STZ \$44,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$74}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{STZ \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$9c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute, X}&\multicolumn{1}{|p{0.2\textwidth}|}{STZ \$4400,X}&\multicolumn{1}{|p{0.1\textwidth}|}{\$9e}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TAX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer Accumulator to X}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TAX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$aa}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TAY}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer Accumulator to Y}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TAY}&\multicolumn{1}{|p{0.1\textwidth}|}{\$a8}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TRB}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Test and Reset Bits}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{TRB \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$14}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{TRB \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$1c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TSB}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Test and Set Bits}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Zero Page}&\multicolumn{1}{|p{0.2\textwidth}|}{TSB \$44}&\multicolumn{1}{|p{0.1\textwidth}|}{\$04}&\multicolumn{1}{|p{0.1\textwidth}|}{2}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Absolute}&\multicolumn{1}{|p{0.2\textwidth}|}{TSB \$4400}&\multicolumn{1}{|p{0.1\textwidth}|}{\$0c}&\multicolumn{1}{|p{0.1\textwidth}|}{3}&\multicolumn{1}{|p{0.4\textwidth}|}{6}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TSX}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer Stack Pointer to X}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TSX}&\multicolumn{1}{|p{0.1\textwidth}|}{\$ba}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TXA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer X to Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TXA}&\multicolumn{1}{|p{0.1\textwidth}|}{\$8a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TXS}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer X to Stack Pointer}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TXS}&\multicolumn{1}{|p{0.1\textwidth}|}{\$9a}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{TYA}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Transfer Y to Accumulator}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{TYA}&\multicolumn{1}{|p{0.1\textwidth}|}{\$98}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{2}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+\cellcolor{green!25}N & V & - & B & D & I & \cellcolor{green!25}Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[H]
+\begin{tabular}{p{0.22\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}p{0.1\textwidth}}
+\multicolumn{5}{p{0.22\textwidth}}{\huge\textbf{WAI}}\\
+\multicolumn{5}{p{0.9\textwidth}}{\textbf{Wait for Interrupt}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{\textbf{Mode}}&\multicolumn{1}{|p{0.2\textwidth}|}{\textbf{Syntax}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{HEX}}&\multicolumn{1}{|p{0.1\textwidth}|}{\textbf{Length}}&\multicolumn{1}{|p{0.4\textwidth}|}{\textbf{Time}}\\ \hline
+\multicolumn{1}{|p{0.22\textwidth}|}{Implied}&\multicolumn{1}{|p{0.2\textwidth}|}{WAI}&\multicolumn{1}{|p{0.1\textwidth}|}{\$cb}&\multicolumn{1}{|p{0.1\textwidth}|}{1}&\multicolumn{1}{|p{0.4\textwidth}|}{5}\\ \hline
+\multicolumn{5}{p{0.9\textwidth}}{FLAGS -
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+N & V & - & B & D & I & Z & C\\
+\hline
+\end{tabular}}
+\end{tabular}
+\end{table}

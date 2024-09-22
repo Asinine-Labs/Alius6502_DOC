@@ -1,0 +1,6 @@
+This is the documentation for the Alius 6502 project.
+
+Built with latex on linux:
+texi2pdf --shell-escape main.tex
+
+
