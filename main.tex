@@ -69,7 +69,7 @@ Derek Robson
 \end{flushright}
 \begin{center}
 \begin{tikzpicture}
-\node[scope fading=north, inner sep=0pt, outer sep=0pt]{
+\node[]{
  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{Alius.PNG}}
 };
 \end{tikzpicture}
@@ -1302,7 +1302,9 @@ Stacked Board
 
 \multicolumn{1}{|l|}{14}&\multicolumn{1}{l|}{0.1$\mu$f capacitor}&\multicolumn{1}{l|}{}\\ \hline
 
-\multicolumn{1}{|l|}{3}&\multicolumn{1}{l|}{2 pin header}&\multicolumn{1}{l|}{Used for jumpers and for power}\\ \hline
+\multicolumn{1}{|l|}{2}&\multicolumn{1}{l|}{2 pin header}&\multicolumn{1}{l|}{Used for power and clock}\\ \hline
+
+\multicolumn{1}{|l|}{1}&\multicolumn{1}{l|}{3 pin header}&\multicolumn{1}{l|}{Used for display}\\ \hline
 
 \multicolumn{1}{|l|}{1}&\multicolumn{1}{l|}{8 pin header}&\multicolumn{1}{l|}{for SD Card}\\ \hline
 
@@ -1333,7 +1335,7 @@ Stacked Board
 \clearpage
 
 \subsection{Tools}
-some tools are nice to have and other tools are a hard requirement, this list is in order of importance.
+Some tools are nice to have and other tools are a hard requirement, this list is in order of importance.
 
 \subsection{Soldering iron}
 \subsection{Solder Remover}
@@ -1376,7 +1378,8 @@ Install reset switch S1.\\
 Install chip sockets for 65C02 CPU, 62256 RAM, 2 x 65C22 I/O chips, 74HC00, 74HC02, 74HC21\\
 \\
 \textbf{Step 4}\\
-Install the ZIF socket for the ROM. This should be mounted to have the lever on the left hand side of the socket.\\
+Install the ZIF socket for the ROM. This should be mounted to have the lever on the right hand side of the socket.\\
+\Note{Pin one of the chip is on the left side of the board, the lever is on thre right for easy access.}\\
 \\
 \textbf{Step 5}\\
 Install capacitor C1
@@ -1438,7 +1441,8 @@ Install sockets for chips U1 -> U6.\\
 Install 6 x 0.1$\mu$f capacitors C10 -> C15\\
 \\
 \textbf{Step 19}\\
-Install the 2 pin jumper for Display\_Blank.
+Install the 3 pin jumper for Display\_Blank.\\
+The jumper should be in the upper position.
 \Note{If you have the "Wide" design then skip to step 23}\\
 \\
 \textbf{Step 20} - "Stacked" design only\\
